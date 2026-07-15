@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>테트리스 게임 (Tetris)</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbit&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="game-container">
+        <!-- 게임 화면 왼쪽 패널 -->
+        <div class="left-panel">
+            <h1 class="game-title">테트리스</h1>
+            <div class="score-board">
+                <div class="score-label">점수</div>
+                <div class="score-value" id="score">0</div>
+            </div>
+            <div class="level-board">
+                <div class="level-label">레벨</div>
+                <div class="level-value" id="level">1</div>
+            </div>
+            
+            <div class="best-score-board">
+                <div class="score-label">최고 기록</div>
+                <div class="score-value" id="bestScore">0</div>
+            </div>
+            
+            <div class="controls-info">
+                <h3>조작법</h3>
+                <p><span>방향키 좌/우:</span> 이동</p>
+                <p><span>방향키 위:</span> 회전</p>
+                <p><span>방향키 아래:</span> 빨리 내리기</p>
+                <p><span>W 키:</span> 한 번에 내리기</p>
+            </div>
+        </div>
+
+        <!-- 중앙 게임 캔버스 -->
+        <div class="canvas-container">
+            <canvas id="gameCanvas" width="300" height="600"></canvas>
+            
+            <!-- 게임 오버 레이어 -->
+            <div id="gameOverScreen" class="overlay hidden">
+                <h2>게임 오버!</h2>
+                <p>최종 점수: <span id="finalScore">0</span></p>
+                <p id="newRecordText" class="hidden new-record-text">🎉 신기록! 🎉</p>
+                <button id="restartBtn">다시 시작하기</button>
+            </div>
+
+            <!-- 일시정지 레이어 -->
+            <div id="pauseScreen" class="overlay hidden">
+                <h2>일시정지</h2>
+                <p>계속하려면 S를 누르세요</p>
+            </div>
+        </div>
+
+        <!-- 게임 화면 오른쪽 패널 -->
+        <div class="right-panel">
+            <div class="next-block-container">
+                <div class="next-label">다음 블록</div>
+                <canvas id="nextCanvas" width="120" height="120"></canvas>
+            </div>
+            
+            <div class="buttons">
+                <button id="startBtn" class="primary-btn">게임 시작</button>
+                <button id="pauseBtn" class="secondary-btn" disabled>일시정지 (S)</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
