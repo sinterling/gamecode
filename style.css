@@ -1,0 +1,173 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Orbit', sans-serif;
+    background-color: #1a1a2e;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.game-wrapper {
+    position: relative;
+    width: 400px;
+    height: 600px;
+    background-color: #87CEEB; /* 하늘색 배경 */
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+}
+
+.game-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* UI Overlays */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    text-align: center;
+}
+
+.overlay.hidden {
+    display: none;
+}
+
+.game-title {
+    font-size: 3rem;
+    color: #fca311;
+    text-shadow: 2px 2px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    margin-bottom: 20px;
+}
+
+.game-over-title {
+    font-size: 2.5rem;
+    color: #e63946;
+    margin-bottom: 10px;
+}
+
+.overlay p {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+.controls-info {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+    margin: 20px 0;
+    text-align: left;
+}
+
+.controls-info p {
+    font-size: 1rem;
+    margin: 5px 0;
+}
+
+.controls-info span {
+    color: #fca311;
+    font-weight: bold;
+}
+
+.new-record-text {
+    color: #ffd700;
+    font-size: 1.5rem !important;
+    font-weight: bold;
+    animation: blink 1s infinite alternate;
+}
+
+@keyframes blink {
+    from { opacity: 1; transform: scale(1); }
+    to { opacity: 0.7; transform: scale(1.1); }
+}
+
+button {
+    background-color: #fca311;
+    color: #14213d;
+    border: none;
+    padding: 12px 30px;
+    font-size: 1.2rem;
+    font-family: inherit;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.1s, background-color 0.2s;
+    box-shadow: 0 4px 0 #b37000;
+}
+
+button:hover {
+    background-color: #ffb703;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 0 #b37000;
+}
+
+button:active {
+    transform: translateY(4px);
+    box-shadow: 0 0 0 #b37000;
+}
+
+/* In-game HUD */
+#hud {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    z-index: 5;
+    pointer-events: none;
+}
+
+#hud.hidden {
+    display: none;
+}
+
+.score-display {
+    font-size: 3rem;
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 2px 2px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000;
+    margin-bottom: 10px;
+}
+
+.speed-bar-container {
+    width: 80%;
+    height: 15px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 2px solid #fff;
+    border-radius: 10px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.speed-bar {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, #ff0000, #ff7f00, #ffff00, #00ff00);
+    background-size: 200% 100%;
+    transition: width 0.1s linear, background-color 0.3s;
+}

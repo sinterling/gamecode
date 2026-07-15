@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>무한의 계단 (Infinite Stairs)</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbit&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="game-wrapper">
+        <div class="game-container">
+            <!-- 게임 오버 및 타이틀 레이어 -->
+            <div id="startScreen" class="overlay">
+                <h1 class="game-title">무한의 계단</h1>
+                <p>최고 기록: <span id="bestScoreText">0</span></p>
+                <div class="controls-info">
+                    <p><span>👉 스페이스바:</span> 오르기 (현재 보는 방향으로 이동)</p>
+                    <p><span>👈 Ctrl 키:</span> 방향전환 (방향 바꾸고 이동)</p>
+                </div>
+                <button id="startBtn">게임 시작</button>
+            </div>
+
+            <div id="gameOverScreen" class="overlay hidden">
+                <h2 class="game-over-title">GAME OVER</h2>
+                <p>점수: <span id="finalScore">0</span></p>
+                <p id="newRecordText" class="hidden new-record-text">🎉 최고 기록 경신! 🎉</p>
+                <button id="restartBtn">다시 하기</button>
+            </div>
+
+            <!-- 게임 HUD -->
+            <div id="hud" class="hidden">
+                <div class="score-display" id="score">0</div>
+                
+                <!-- 스피드 바 -->
+                <div class="speed-bar-container">
+                    <div class="speed-bar" id="speedBar"></div>
+                </div>
+            </div>
+
+            <!-- 게임 캔버스 -->
+            <canvas id="gameCanvas" width="400" height="600"></canvas>
+            
+            <!-- 캐릭터 숨김 이미지 (캔버스 그리기용) -->
+            <img id="characterImg" src="character.png" alt="character" style="display: none;" onerror="this.onerror=null; this.dataset.missing='true';">
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
